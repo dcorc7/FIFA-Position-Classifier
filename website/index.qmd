@@ -1,0 +1,14 @@
+---
+title: Classifying Soccer Player Pistions Using FIFA Card Statistics
+---
+
+# Introduction
+
+
+
+# Literature Review
+
+
+
+
+The Github repository hosting all code for this project can be found [here](https://github.com/dcorc7/FIFA-Position-Classifier)
