@@ -21,9 +21,8 @@ The project is built with Python, pandas, scikit-learn, and XGBoost, with a Quar
 
 ## Data Sources
 
-- [Sofifa](https://sofifa.com/): Primary source for player stats and ratings
 - [Kaggle FIFA Dataset](https://www.kaggle.com/stefanoleone992/fifa-23-complete-player-dataset): Convenient CSVs for multiple years
-- Custom mappings for generic position categories
+- Custom mappings for position categories
 
 ---
 
