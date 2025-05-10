@@ -170,7 +170,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>This section outlines the methodological framework used to classify FIFA 23 players into position categories using neural networks. The process involved designing and training multi-layer feedforward neural networks on a curated and preprocessed dataset of player attributes. The aim was to build models capable of learning complex patterns in the data and accurately predicting either the <strong>specific</strong> or <strong>generic</strong> on-pitch positions of football players. The methodology emphasizes model design, training strategies, and optimization procedures to ensure generalizability and performance.</p>
-<hr>
 <section id="neural-networks" class="level1">
 <h1>Neural Networks</h1>
 <p>Neural networks are flexible, data-driven models inspired by the structure and functioning of neurons in the human brain. These models consist of layers of interconnected nodes (neurons) that apply transformations to input data through weighted connections and nonlinear activation functions. A typical feedforward neural network comprises an input layer, one or more hidden layers, and an output layer. As data passes through the network, each neuron computes a weighted sum of its inputs, applies an activation function, and sends the result forward.</p>
@@ -186,7 +185,6 @@ ul.task-list li input[type="checkbox"] {
 <p>Both models used a final <strong>dense (fully connected) layer</strong> followed by a <strong>softmax activation function</strong>. The softmax function converts the raw output logits into class probabilities that sum to one, enabling a probabilistic interpretation of the model’s predictions.</p>
 <p>The networks were trained using the <strong>categorical cross-entropy (CCE)</strong> loss function, which is suitable for multi-class classification tasks. Predictions were obtained by taking the <strong>argmax</strong> of the output probability vector—selecting the class with the highest predicted probability.</p>
 <p>Throughout training, the choice of optimizer (Adam, SGD, or RMSProp) was based on performance observed during a manual hyperparameter tuning process. Model evaluation focused on both <strong>accuracy</strong> and <strong>generalization</strong>, assessed through performance on a held-out validation set.</p>
-<hr>
 
 
 </section>

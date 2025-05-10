@@ -8,7 +8,7 @@ The neural network model for classifying players into their generic football pos
 
 During training, the model’s performance steadily improved, with the validation loss decreasing from **0.6933 in epoch 1** to **0.6722 by epoch 34**, and achieving a **final test loss of 0.6715**. This suggests that the model not only learned meaningful representations but also generalized well to unseen data.
 
-![Training and validation loss curves for the generic position model](./img/generic_position_loss_curves.png){width=50%}
+![Training and validation loss curves for the generic position model](./img/generic_position_loss_curves.png){width=60%}
 
 The model’s classification performance was evaluated using accuracy, precision, recall, and F1 score, which were derived from the multi-class confusion matrix. The **overall accuracy** of the model was **0.8776**, indicating that nearly 88% of the predictions matched the true generic position labels. The **precision (0.8772)** and **recall (0.8776)** scores reflect a high degree of correctness and completeness in the model’s predictions, respectively. The **F1 score** of **0.8766** further confirms the balanced nature of the model’s performance.
 
@@ -29,13 +29,12 @@ The following table presents the performance metrics for the generic classificat
 - **Defenders (Class 2):**  
   The model maintains **solid performance** for defenders with a **precision** of 0.8365 and **recall** of 0.8727, yielding a strong **F1 score** of **0.8542**. This indicates a balanced approach to predicting defenders, with relatively few false positives or negatives.
 
-![Confusion Matrix for the generic position model](./img/generic_position_confusion_matrix.png){width=50%}
+![Confusion Matrix for the generic position model](./img/generic_position_confusion_matrix.png){width=60%}
 
 These class-level metrics confirm that the model performs consistently across all three generic positions, though improvements could be made in enhancing recall for attackers. The **macro-averaged F1 score** of **0.8591** and **weighted average F1 score** of **0.8766** further validate the model's robustness across the imbalanced class distribution.
 
 While the current results demonstrate a high-performing model, further enhancements may be possible through the exploration of more complex architectures (e.g., attention mechanisms or residual connections) or additional input features that capture contextual positional data. Nonetheless, this neural network serves as a strong baseline for generic position classification tasks in football analytics.
 
----
 
 ## Neural Network – Specific Position Classification
 
@@ -43,7 +42,7 @@ The neural network model developed to classify players into their specific footb
 
 The model exhibited gradual improvement during training, with the validation loss decreasing from **1.8684 in epoch 1** to **1.7367 by epoch 55**, before reaching a **final test loss of 1.7404**. This consistent convergence suggests effective learning, although the loss plateaued in the latter epochs, hinting at the limits of this architecture for such a fine-grained task.
 
-![Training and validation loss curves for the specific position model](./img/specific_position_loss_curves.png){width=50%}
+![Training and validation loss curves for the specific position model](./img/specific_position_loss_curves.png){width=60%}
 
 Despite successful convergence, the **overall classification performance** was moderate due to the increased complexity of distinguishing between nine specific player positions. The model achieved an **accuracy of 0.6262**, with a **precision of 0.5640**, **recall of 0.6262**, and **F1 score of 0.5920**. These metrics indicate that while the model can often identify the correct position, it struggles with class-specific consistency—particularly for underrepresented classes.
 
@@ -61,34 +60,34 @@ The following table summarizes the performance metrics for each class in the spe
 | 7.0   | 0.0000    | 0.0000 | 0.0000   | 136     |
 | 8.0   | 0.7655    | 0.8924 | 0.8241   | 790     |
 
-- **Class 0 (e.g., Center Backs):**  
+- **Center Backs (Class 0):**  
   The model performed exceptionally well for center-backs with high **precision** (0.8927) and **recall** (0.8955), resulting in an **F1 score** of **0.8941**. This suggests that the model reliably identifies this position with few false positives and false negatives.
 
-- **Class 1 (e.g., Left Backs):**  
-  The model failed to classify left-backs, resulting in a **precision** and **recall** of 0.0000. This could be due to the underrepresentation of left-backs in the training data or insufficient discriminative features in the input data for this role.
+- **Center Midfielders (Class 1):**  
+  The model failed to classify center midfielders, resulting in a **precision** and **recall** of 0.0000. This could be due to the underrepresentation of left-backs in the training data or insufficient discriminative features in the input data for this role.
 
-- **Class 2 (e.g., Right Backs):**  
-  Right-backs were classified well with **precision** (0.7932) and **recall** (0.7992), yielding a strong **F1 score** of **0.7962**. This indicates that the model can reliably classify these players.
+- **Left Backs (Class 2):**  
+  Left-backs were classified well with **precision** (0.7932) and **recall** (0.7992), yielding a strong **F1 score** of **0.7962**. This indicates that the model can reliably classify these players.
 
-- **Class 3 (e.g., Central Midfielders):**  
-  Performance for central midfielders was moderate, with a **F1 score** of **0.4039**. The model exhibited weaker results in both **precision** and **recall**, which may be due to the complex nature of this position, which often overlaps with other roles.
+- **Left Midfielders (Class 3):**  
+  Performance for Left midfielders was moderate, with a **F1 score** of **0.4039**. The model exhibited weaker results in both **precision** and **recall**, which may be due to the complex nature of this position, which often overlaps with other roles.
 
-- **Class 4 (e.g., Defensive Midfielders):**  
-  Like left-backs, defensive midfielders were poorly classified with **precision** and **recall** both at 0.0000. The lack of success here points to a data imbalance or feature overlap causing difficulty in learning the distinguishing traits of defensive midfielders.
+- **Left Wingers (Class 4):**  
+  Left wingers were poorly classified with **precision** and **recall** both at 0.0000. The lack of success here points to a data imbalance or feature overlap causing difficulty in learning the distinguishing traits of defensive midfielders.
 
-- **Class 5 (e.g., Attacking Midfielders):**  
-  The model performed well with attacking midfielders, scoring **precision** (0.7204), **recall** (0.8096), and an **F1 score** of **0.7624**, indicating strong classification results for this position.
+- **Right Backs (Class 5):**  
+  The model performed well with right backs, scoring **precision** (0.7204), **recall** (0.8096), and an **F1 score** of **0.7624**, indicating strong classification results for this position.
 
-- **Class 6 (e.g., Wingers):**  
-  The model’s **F1 score** for wingers was **0.4553**, with moderate performance in both **precision** and **recall**. Improving precision would help reduce false positives for this position.
+- **Right Midfielders (Class 6):**  
+  The model’s **F1 score** for right midfielders was **0.4553**, with moderate performance in both **precision** and **recall**. Improving precision would help reduce false positives for this position.
 
-- **Class 7 (e.g., Second Strikers):**  
-  Similar to other underrepresented roles, second strikers had a **precision** and **recall** of 0.0000. This suggests the model was unable to effectively identify this position, likely due to insufficient data or feature ambiguity.
+- **Right Wings (Class 7):**  
+  Similar to other underrepresented roles, right wings had a **precision** and **recall** of 0.0000. This suggests the model was unable to effectively identify this position, likely due to insufficient data or feature ambiguity.
 
-- **Class 8 (e.g., Strikers):**  
+- **Strikers (Class 8):**  
   The model performed strongly with strikers, achieving an **F1 score** of **0.8241**. Both **precision** (0.7655) and **recall** (0.8924) were high, showing that the model accurately identified this attacking role.
 
-![Confusion Matrix for the specific position model](./img/specific_position_confusion_matrix.png){width=50%}
+![Confusion Matrix for the specific position model](./img/specific_position_confusion_matrix.png){width=60%}
 
 Overall, while the model demonstrated strong performance for certain positions, such as center-backs and strikers, there is a significant imbalance in how it classifies less-represented positions, like left-backs and defensive midfielders. These results highlight areas for potential improvement, such as **data augmentation**, **class balancing**, or incorporating **positional embeddings** into the model.
 

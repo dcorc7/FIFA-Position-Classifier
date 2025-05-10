@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The dataset used in this project was sourced from the publicly available FIFA 23 Complete Player Dataset on Kaggle, created by Stefano Leone. This comprehensive dataset spans multiple editions of the FIFA video game series, from FIFA 15 through FIFA 23, and includes detailed information on thousands of players from each game year. Upon initial download, the dataset comprised 161,583 rows and 110 columns, representing a wide array of player data across seasons.</p>
 <p>The raw data contains a diverse range of features, including player biographical information (e.g., name, nationality, age, height, weight), game-specific ratings (e.g., overall score, potential), position labels, in-game attributes (e.g., passing accuracy, dribbling, strength, acceleration), and categorical characteristics such as preferred foot, work rate, and body type. Additionally, the dataset includes financial estimations like player value and wage in euros, which help contextualize a player’s market standing within the game. Some columns also contain metadata, such as unique player IDs, contract details, and club affiliation.</p>
 <p>This rich and multifaceted dataset provides the foundation for training neural networks capable of positional classification. However, before modeling, a thorough data cleaning and preprocessing pipeline was necessary to reduce noise, handle missing or irrelevant entries, and retain only the features relevant to our classification tasks.</p>
-<hr>
+<p>The raw dataset can be downloaded <a href="https://www.kaggle.com/datasets/stefanoleone992/fifa-23-complete-player-dataset">here</a></p>
 </section>
 <section id="preprocessing" class="level1">
 <h1>Preprocessing:</h1>
@@ -182,7 +182,6 @@ ul.task-list li input[type="checkbox"] {
 <p>To facilitate modeling, player positions were mapped into a controlled set of categories. The specific_position column, which originally contained over 25 detailed FIFA position labels, was consolidated into nine standardized positions: ST, LW, RW, LM, RM, CM, CB, LB, and RB. These were then further grouped into the three broader positional categories of attacker, midfielder, and defender under a new generic_position column. In addition, body types were normalized into four groups: Lean, Normal, Stocky, and Unique, simplifying what was originally a more granular and inconsistent set of labels.</p>
 <p>Categorical variables were one-hot encoded to convert them into a numeric format compatible with neural network input. This included preferred_foot, work_rate, and body_type. The specific and generic position labels were also encoded using label encoders to create integer class labels for classification.</p>
 <p>Finally, all numeric features, such as player attributes like pace, shooting, strength, and value, were standardized using StandardScaler to ensure that they shared a common scale. This step is especially important for neural networks, which are sensitive to the magnitude of input values. Boolean fields were converted to binary integers to ensure compatibility during model training. By the end of this pipeline, the dataset was fully numeric, clean, and appropriately structured for training multi-class classification models.</p>
-<hr>
 </section>
 <section id="final-input-format" class="level1">
 <h1>Final Input Format:</h1>
@@ -190,247 +189,305 @@ ul.task-list li input[type="checkbox"] {
 <p>The final features and a short description of each can be found below:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 8%">
+<col style="width: 27%">
+<col style="width: 63%">
 </colgroup>
 <thead>
 <tr class="header">
+<th><strong>Index</strong></th>
 <th><strong>Feature Name</strong></th>
 <th><strong>Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td>1</td>
 <td>overall</td>
 <td>Overall rating representing player quality</td>
 </tr>
 <tr class="even">
+<td>2</td>
 <td>value_eur</td>
 <td>Estimated market value in euros</td>
 </tr>
 <tr class="odd">
+<td>3</td>
 <td>wage_eur</td>
 <td>Weekly wage in euros</td>
 </tr>
 <tr class="even">
+<td>4</td>
 <td>age</td>
 <td>Player’s age in years</td>
 </tr>
 <tr class="odd">
+<td>5</td>
 <td>height_cm</td>
 <td>Player’s height in centimeters</td>
 </tr>
 <tr class="even">
+<td>6</td>
 <td>weight_kg</td>
 <td>Player’s weight in kilograms</td>
 </tr>
 <tr class="odd">
+<td>7</td>
 <td>weak_foot</td>
 <td>Rating (1–5) of the player’s ability with non-dominant foot</td>
 </tr>
 <tr class="even">
+<td>8</td>
 <td>skill_moves</td>
 <td>Rating (1–5) of the player’s special skill move ability</td>
 </tr>
 <tr class="odd">
+<td>9</td>
 <td>pace</td>
 <td>Overall pace rating (acceleration + sprint speed)</td>
 </tr>
 <tr class="even">
+<td>10</td>
 <td>shooting</td>
 <td>Overall shooting rating</td>
 </tr>
 <tr class="odd">
+<td>11</td>
 <td>passing</td>
 <td>Overall passing rating</td>
 </tr>
 <tr class="even">
+<td>12</td>
 <td>dribbling</td>
 <td>Overall dribbling rating</td>
 </tr>
 <tr class="odd">
+<td>13</td>
 <td>defending</td>
 <td>Overall defending rating</td>
 </tr>
 <tr class="even">
+<td>14</td>
 <td>physic</td>
 <td>Overall physical ability rating</td>
 </tr>
 <tr class="odd">
+<td>15</td>
 <td>attacking_crossing</td>
 <td>Ability to cross the ball</td>
 </tr>
 <tr class="even">
+<td>16</td>
 <td>attacking_finishing</td>
 <td>Ability to finish scoring chances</td>
 </tr>
 <tr class="odd">
+<td>17</td>
 <td>attacking_heading_accuracy</td>
 <td>Heading accuracy during attacks</td>
 </tr>
 <tr class="even">
+<td>18</td>
 <td>attacking_short_passing</td>
 <td>Accuracy and effectiveness of short passes</td>
 </tr>
 <tr class="odd">
+<td>19</td>
 <td>attacking_volleys</td>
 <td>Accuracy and technique when volleying</td>
 </tr>
 <tr class="even">
+<td>20</td>
 <td>skill_dribbling</td>
 <td>Technical dribbling ability</td>
 </tr>
 <tr class="odd">
+<td>21</td>
 <td>skill_curve</td>
 <td>Ability to curve the ball</td>
 </tr>
 <tr class="even">
+<td>22</td>
 <td>skill_fk_accuracy</td>
 <td>Accuracy when taking free kicks</td>
 </tr>
 <tr class="odd">
+<td>23</td>
 <td>skill_long_passing</td>
 <td>Accuracy and effectiveness of long passes</td>
 </tr>
 <tr class="even">
+<td>24</td>
 <td>skill_ball_control</td>
 <td>Ball control under pressure</td>
 </tr>
 <tr class="odd">
+<td>25</td>
 <td>movement_acceleration</td>
 <td>Quickness from a standstill</td>
 </tr>
 <tr class="even">
+<td>26</td>
 <td>movement_sprint_speed</td>
 <td>Top sprint speed</td>
 </tr>
 <tr class="odd">
+<td>27</td>
 <td>movement_agility</td>
 <td>Ability to turn and change direction quickly</td>
 </tr>
 <tr class="even">
+<td>28</td>
 <td>movement_reactions</td>
 <td>Speed of reaction to gameplay situations</td>
 </tr>
 <tr class="odd">
+<td>29</td>
 <td>movement_balance</td>
 <td>Ability to stay balanced under pressure</td>
 </tr>
 <tr class="even">
+<td>30</td>
 <td>power_shot_power</td>
 <td>Power behind shots</td>
 </tr>
 <tr class="odd">
+<td>31</td>
 <td>power_jumping</td>
 <td>Jumping ability</td>
 </tr>
 <tr class="even">
+<td>32</td>
 <td>power_stamina</td>
 <td>Ability to sustain high performance over time</td>
 </tr>
 <tr class="odd">
+<td>33</td>
 <td>power_strength</td>
 <td>Physical strength in duels</td>
 </tr>
 <tr class="even">
+<td>34</td>
 <td>power_long_shots</td>
 <td>Accuracy and power of long-distance shots</td>
 </tr>
 <tr class="odd">
+<td>35</td>
 <td>mentality_aggression</td>
 <td>Aggression and intensity in play</td>
 </tr>
 <tr class="even">
+<td>36</td>
 <td>mentality_interceptions</td>
 <td>Ability to read the game and intercept passes</td>
 </tr>
 <tr class="odd">
+<td>37</td>
 <td>mentality_positioning</td>
 <td>Attacking positioning without the ball</td>
 </tr>
 <tr class="even">
+<td>38</td>
 <td>mentality_vision</td>
 <td>Ability to see passing opportunities</td>
 </tr>
 <tr class="odd">
+<td>39</td>
 <td>mentality_penalties</td>
 <td>Skill in taking penalty kicks</td>
 </tr>
 <tr class="even">
+<td>40</td>
 <td>defending_marking_awareness</td>
 <td>Ability to mark and track players defensively</td>
 </tr>
 <tr class="odd">
+<td>41</td>
 <td>defending_standing_tackle</td>
 <td>Effectiveness of standing tackles</td>
 </tr>
 <tr class="even">
+<td>42</td>
 <td>defending_sliding_tackle</td>
 <td>Effectiveness of sliding tackles</td>
 </tr>
 <tr class="odd">
+<td>43</td>
 <td>preferred_foot_Left</td>
 <td>Binary indicator: player prefers left foot</td>
 </tr>
 <tr class="even">
+<td>44</td>
 <td>preferred_foot_Right</td>
 <td>Binary indicator: player prefers right foot</td>
 </tr>
 <tr class="odd">
+<td>45</td>
 <td>work_rate_High/High</td>
 <td>Binary indicator for high attacking and high defensive work rate</td>
 </tr>
 <tr class="even">
+<td>46</td>
 <td>work_rate_High/Low</td>
 <td>Binary indicator for high attacking and low defensive work rate</td>
 </tr>
 <tr class="odd">
+<td>47</td>
 <td>work_rate_High/Medium</td>
 <td>Binary indicator for high attacking and medium defensive work rate</td>
 </tr>
 <tr class="even">
+<td>48</td>
 <td>work_rate_Low/High</td>
 <td>Binary indicator for low attacking and high defensive work rate</td>
 </tr>
 <tr class="odd">
+<td>49</td>
 <td>work_rate_Low/Low</td>
 <td>Binary indicator for low attacking and low defensive work rate</td>
 </tr>
 <tr class="even">
+<td>50</td>
 <td>work_rate_Low/Medium</td>
 <td>Binary indicator for low attacking and medium defensive work rate</td>
 </tr>
 <tr class="odd">
+<td>51</td>
 <td>work_rate_Medium/High</td>
 <td>Binary indicator for medium attacking and high defensive work rate</td>
 </tr>
 <tr class="even">
+<td>52</td>
 <td>work_rate_Medium/Low</td>
 <td>Binary indicator for medium attacking and low defensive work rate</td>
 </tr>
 <tr class="odd">
+<td>53</td>
 <td>work_rate_Medium/Medium</td>
 <td>Binary indicator for medium attacking and medium defensive work rate</td>
 </tr>
 <tr class="even">
+<td>54</td>
 <td>body_type_Lean</td>
 <td>Binary indicator: lean body type</td>
 </tr>
 <tr class="odd">
+<td>55</td>
 <td>body_type_Normal</td>
 <td>Binary indicator: normal body type</td>
 </tr>
 <tr class="even">
+<td>56</td>
 <td>body_type_Stocky</td>
 <td>Binary indicator: stocky body type</td>
 </tr>
 <tr class="odd">
+<td>57</td>
 <td>body_type_Unique</td>
 <td>Binary indicator: unique body type (e.g., custom model)</td>
 </tr>
 </tbody>
 </table>
-<hr>
 
 
 </section>
