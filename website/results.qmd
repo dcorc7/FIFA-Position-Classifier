@@ -17,17 +17,17 @@ The following table presents the performance metrics for the generic classificat
 | Class       | Precision | Recall | F1 Score | Support |
 |-------------|-----------|--------|----------|---------|
 | Attackers   | 0.8440    | 0.7328 | 0.7845   | 1048    |
-| Midfielders | 0.9316    | 0.9456 | 0.9385   | 2406    |
-| Defenders   | 0.8365    | 0.8727 | 0.8542   | 2357    |
+| Defenders   | 0.9316    | 0.9456 | 0.9385   | 2406    |
+| Midfielders | 0.8365    | 0.8727 | 0.8542   | 2357    |
 
 - **Attackers (Class 0):**  
   The model shows **good precision** (0.8440) but struggles with **recall** (0.7328), resulting in a **moderate F1 score** of **0.7845**. This indicates that while the model is accurate when predicting attackers, it fails to capture some true attackers, leading to false negatives.
 
-- **Midfielders (Class 1):**  
-  Midfielders are the best predicted class, with a **high precision** (0.9316) and **recall** (0.9456), resulting in an **outstanding F1 score** of **0.9385**. The model is both accurate and comprehensive in identifying midfielders, showing strong performance in this category.
+- **Defenders (Class 1):**  
+  Defenders are the best predicted class, with a **high precision** (0.9316) and **recall** (0.9456), resulting in an **outstanding F1 score** of **0.9385**. The model is both accurate and comprehensive in identifying defenders, showing strong performance in this category.
 
-- **Defenders (Class 2):**  
-  The model maintains **solid performance** for defenders with a **precision** of 0.8365 and **recall** of 0.8727, yielding a strong **F1 score** of **0.8542**. This indicates a balanced approach to predicting defenders, with relatively few false positives or negatives.
+- **Midfielders (Class 2):**  
+  The model maintains **solid performance** for midfielders with a **precision** of 0.8365 and **recall** of 0.8727, yielding a strong **F1 score** of **0.8542**. This indicates a balanced approach to predicting midfielders, with relatively few false positives or negatives.
 
 ![Confusion Matrix for the generic position model](./img/generic_position_confusion_matrix.png){width=60%}
 
@@ -81,16 +81,16 @@ The following table summarizes the performance metrics for each class in the spe
 - **Right Midfielders (Class 6):**  
   The model’s **F1 score** for right midfielders was **0.4553**, with moderate performance in both **precision** and **recall**. Improving precision would help reduce false positives for this position.
 
-- **Right Wings (Class 7):**  
-  Similar to other underrepresented roles, right wings had a **precision** and **recall** of 0.0000. This suggests the model was unable to effectively identify this position, likely due to insufficient data or feature ambiguity.
+- **Right Wingers (Class 7):**  
+  Similar to other underrepresented roles, right wingers had a **precision** and **recall** of 0.0000. This suggests the model was unable to effectively identify this position, likely due to insufficient data or feature ambiguity.
 
 - **Strikers (Class 8):**  
   The model performed strongly with strikers, achieving an **F1 score** of **0.8241**. Both **precision** (0.7655) and **recall** (0.8924) were high, showing that the model accurately identified this attacking role.
 
 ![Confusion Matrix for the specific position model](./img/specific_position_confusion_matrix.png){width=60%}
 
-Overall, while the model demonstrated strong performance for certain positions, such as center-backs and strikers, there is a significant imbalance in how it classifies less-represented positions, like left-backs and defensive midfielders. These results highlight areas for potential improvement, such as **data augmentation**, **class balancing**, or incorporating **positional embeddings** into the model.
+Overall, while the model demonstrated strong performance for certain positions, such as center backs (Class 0) and strikers (Class 8), there is a significant imbalance in how it classifies less-represented positions, like left midfielders (Class 3) and right wingers (Class 7). These results highlight areas for potential improvement, such as data augmentation, class balancing, or incorporating positional embeddings into the model.
 
-The **macro-averaged F1 score** of **0.4595** reflects the variance in performance across classes, while the **weighted average F1 score** of **0.5920** shows that the model performs better on the more prevalent classes. These results indicate that while the model captures positional patterns for well-represented roles, it struggles with niche or overlapping classes.
+The macro-averaged F1 score of 0.4595 reflects the variance in performance across classes, while the weighted average F1 score of 0.5920 shows that the model performs better on the more prevalent classes. These results indicate that while the model captures positional patterns for well-represented roles, like center backs and strikers, it struggles with niche or overlapping classes such as center midfielders (Class 1) and left wingers (Class 4).
 
-Future improvements could involve **class balancing techniques**, **positional embeddings**, or **sequence-aware models** to capture tactical roles more dynamically. Nonetheless, the current model offers a useful first step in fine-grained player role prediction.
+Future improvements could involve class balancing techniques, positional embeddings, or sequence-aware models to capture tactical roles more dynamically. Nonetheless, the current model offers a useful first step in fine-grained player role prediction.

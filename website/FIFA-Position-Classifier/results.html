@@ -198,14 +198,14 @@ ul.task-list li input[type="checkbox"] {
 <td>1048</td>
 </tr>
 <tr class="even">
-<td>Midfielders</td>
+<td>Defenders</td>
 <td>0.9316</td>
 <td>0.9456</td>
 <td>0.9385</td>
 <td>2406</td>
 </tr>
 <tr class="odd">
-<td>Defenders</td>
+<td>Midfielders</td>
 <td>0.8365</td>
 <td>0.8727</td>
 <td>0.8542</td>
@@ -216,10 +216,10 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>Attackers (Class 0):</strong><br>
 The model shows <strong>good precision</strong> (0.8440) but struggles with <strong>recall</strong> (0.7328), resulting in a <strong>moderate F1 score</strong> of <strong>0.7845</strong>. This indicates that while the model is accurate when predicting attackers, it fails to capture some true attackers, leading to false negatives.</p></li>
-<li><p><strong>Midfielders (Class 1):</strong><br>
-Midfielders are the best predicted class, with a <strong>high precision</strong> (0.9316) and <strong>recall</strong> (0.9456), resulting in an <strong>outstanding F1 score</strong> of <strong>0.9385</strong>. The model is both accurate and comprehensive in identifying midfielders, showing strong performance in this category.</p></li>
-<li><p><strong>Defenders (Class 2):</strong><br>
-The model maintains <strong>solid performance</strong> for defenders with a <strong>precision</strong> of 0.8365 and <strong>recall</strong> of 0.8727, yielding a strong <strong>F1 score</strong> of <strong>0.8542</strong>. This indicates a balanced approach to predicting defenders, with relatively few false positives or negatives.</p></li>
+<li><p><strong>Defenders (Class 1):</strong><br>
+Defenders are the best predicted class, with a <strong>high precision</strong> (0.9316) and <strong>recall</strong> (0.9456), resulting in an <strong>outstanding F1 score</strong> of <strong>0.9385</strong>. The model is both accurate and comprehensive in identifying defenders, showing strong performance in this category.</p></li>
+<li><p><strong>Midfielders (Class 2):</strong><br>
+The model maintains <strong>solid performance</strong> for midfielders with a <strong>precision</strong> of 0.8365 and <strong>recall</strong> of 0.8727, yielding a strong <strong>F1 score</strong> of <strong>0.8542</strong>. This indicates a balanced approach to predicting midfielders, with relatively few false positives or negatives.</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -333,8 +333,8 @@ Left wingers were poorly classified with <strong>precision</strong> and <strong>
 The model performed well with right backs, scoring <strong>precision</strong> (0.7204), <strong>recall</strong> (0.8096), and an <strong>F1 score</strong> of <strong>0.7624</strong>, indicating strong classification results for this position.</p></li>
 <li><p><strong>Right Midfielders (Class 6):</strong><br>
 The model’s <strong>F1 score</strong> for right midfielders was <strong>0.4553</strong>, with moderate performance in both <strong>precision</strong> and <strong>recall</strong>. Improving precision would help reduce false positives for this position.</p></li>
-<li><p><strong>Right Wings (Class 7):</strong><br>
-Similar to other underrepresented roles, right wings had a <strong>precision</strong> and <strong>recall</strong> of 0.0000. This suggests the model was unable to effectively identify this position, likely due to insufficient data or feature ambiguity.</p></li>
+<li><p><strong>Right Wingers (Class 7):</strong><br>
+Similar to other underrepresented roles, right wingers had a <strong>precision</strong> and <strong>recall</strong> of 0.0000. This suggests the model was unable to effectively identify this position, likely due to insufficient data or feature ambiguity.</p></li>
 <li><p><strong>Strikers (Class 8):</strong><br>
 The model performed strongly with strikers, achieving an <strong>F1 score</strong> of <strong>0.8241</strong>. Both <strong>precision</strong> (0.7655) and <strong>recall</strong> (0.8924) were high, showing that the model accurately identified this attacking role.</p></li>
 </ul>
@@ -344,9 +344,9 @@ The model performed strongly with strikers, achieving an <strong>F1 score</stron
 <figcaption>Confusion Matrix for the specific position model</figcaption>
 </figure>
 </div>
-<p>Overall, while the model demonstrated strong performance for certain positions, such as center-backs and strikers, there is a significant imbalance in how it classifies less-represented positions, like left-backs and defensive midfielders. These results highlight areas for potential improvement, such as <strong>data augmentation</strong>, <strong>class balancing</strong>, or incorporating <strong>positional embeddings</strong> into the model.</p>
-<p>The <strong>macro-averaged F1 score</strong> of <strong>0.4595</strong> reflects the variance in performance across classes, while the <strong>weighted average F1 score</strong> of <strong>0.5920</strong> shows that the model performs better on the more prevalent classes. These results indicate that while the model captures positional patterns for well-represented roles, it struggles with niche or overlapping classes.</p>
-<p>Future improvements could involve <strong>class balancing techniques</strong>, <strong>positional embeddings</strong>, or <strong>sequence-aware models</strong> to capture tactical roles more dynamically. Nonetheless, the current model offers a useful first step in fine-grained player role prediction.</p>
+<p>Overall, while the model demonstrated strong performance for certain positions, such as center backs (Class 0) and strikers (Class 8), there is a significant imbalance in how it classifies less-represented positions, like left midfielders (Class 3) and right wingers (Class 7). These results highlight areas for potential improvement, such as data augmentation, class balancing, or incorporating positional embeddings into the model.</p>
+<p>The macro-averaged F1 score of 0.4595 reflects the variance in performance across classes, while the weighted average F1 score of 0.5920 shows that the model performs better on the more prevalent classes. These results indicate that while the model captures positional patterns for well-represented roles, like center backs and strikers, it struggles with niche or overlapping classes such as center midfielders (Class 1) and left wingers (Class 4).</p>
+<p>Future improvements could involve class balancing techniques, positional embeddings, or sequence-aware models to capture tactical roles more dynamically. Nonetheless, the current model offers a useful first step in fine-grained player role prediction.</p>
 
 
 </section>
