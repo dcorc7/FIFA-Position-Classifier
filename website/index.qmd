@@ -1,5 +1,5 @@
 ---
-title: Classifying Soccer Player Pistions Using FIFA Card Statistics
+title: Classifying Soccer Player Postions Using FIFA Card Statistics
 ---
 
 # Introduction
