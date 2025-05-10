@@ -3,16 +3,16 @@
 
 This project uses machine learning to classify soccer players into their field positions using FIFA video game statistics. It includes two models:
 
-- **Genreica Player Position Model**: Classifies players into 4 **generic positions** (Goalkeeper, Defender, Midfielder, Attacker)
-- **Specific Player Position Model**: Classifies players into 15 **specific positions** (CB, LB, CDM, CAM, ST, GK, etc.)
+- **Generic Player Position Model**: Classifies players into **3 generic positions** - Defender, Midfielder, and Attacker
+- **Specific Player Position Model**: Classifies players into **9 specific positions** - CB, LB, RB, CM, LM, RM, ST, LW, and RW
 
-The project is built with Python, pandas, scikit-learn, and XGBoost, with a Quarto website for documentation and results.
+The project is built with Python, pandas, scikit-learn, and PyTorch with a Quarto website for documentation and results.
 
 ---
 
 ## Project Goals
 
-- Build multiclass classifiers to predict player positions based on FIFA attributes
+- Build multiclass neural network classifiers to predict player positions based on FIFA attributes
 - Evaluate performance using accuracy, F1-score, and confusion matrices
 - Analyze feature importances to understand what attributes define each position
 - Create a transparent and reproducible machine learning pipeline
