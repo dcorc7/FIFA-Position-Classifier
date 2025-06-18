@@ -74,4 +74,6 @@ These role-specific stat distributions make FIFA cards especially well-suited fo
 
 # Literature Review
 
+# Github Repository
+
 The Github repository hosting all code for this project can be found [here](https://github.com/dcorc7/FIFA-Position-Classifier)
